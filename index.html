@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--
+      If you are serving your web app in a path other than the root, change the
+      href value below to reflect the base path you are serving from.
+
+      The path provided below has to start and end with a slash "/" in order for
+      it to work correctly.
+
+      For more details:
+      * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+      This is a placeholder for base href that will be replaced by the value of
+      the `--base-href` argument provided to `flutter build`.
+    -->
+
+
+    <base href="/flutter_portfolio/">
+
+    <meta charset="UTF-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="description"
+          content="Harsh Shah — 4+YofE Mobile App Developer Portfolio. Showcasing mobile and web applications built with Flutter.">
+    <meta name="author" content="Harsh Shah">
+    <meta name="keywords"
+          content="Harsh Shah, Flutter Developer, Mobile App Developer, Portfolio, Flutter Apps">
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Harsh Shah - Flutter Developer Portfolio">
+    <meta property="og:description"
+          content="Showcasing mobile and web applications built with Flutter">
+    <meta property="og:type" content="website">
+
+    <!-- iOS meta tags & icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Harsh Shah Portfolio">
+    <link rel="apple-touch-icon" href="icons/Icon-192.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="icons/Icon-192.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="icons/Icon-512.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png"/>
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/Icon-192.png"/>
+    <link rel="icon" type="image/png" sizes="512x512" href="icons/Icon-512.png"/>
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+
+    <title>Harsh Shah - Flutter Developer Portfolio</title>
+    <link rel="manifest" href="manifest.json">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #D6D5D3;
+            color: #242424;
+            margin: 0;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            transition: background-color 0.3s ease;
+        }
+
+        .loading-container {
+            position: relative;
+            width: 80px;
+            height: 80px;
+        }
+
+        /* Outer Ring - Gold */
+        .loader-track {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 4px solid rgba(36, 36, 36, 0.12);
+        }
+
+        .loader-ring {
+            position: absolute;
+            inset: 0;
+            border: 4px solid transparent;
+            border-top-color: #242424;
+            border-radius: 50%;
+            animation: spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+        }
+
+        /* Inner Ring - Bright Gold */
+        .inner-track {
+            position: absolute;
+            top: 20%;
+            left: 20%;
+            width: 60%;
+            height: 60%;
+            border-radius: 50%;
+            border: 3px solid rgba(92, 91, 89, 0.15);
+        }
+
+        .inner-ring {
+            position: absolute;
+            top: 20%;
+            left: 20%;
+            width: 60%;
+            height: 60%;
+            border: 3px solid transparent;
+            border-top-color: #5C5B59;
+            border-radius: 50%;
+            animation: spin 1.5s linear infinite reverse;
+        }
+
+        /* Center Dot - Gold */
+        .center-dot {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 8px;
+            height: 8px;
+            background-color: #242424;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px rgba(36, 36, 36, 0.35);
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+    </style>
+</head>
+<body>
+<div class="loading-container">
+    <div class="loader-track"></div>
+    <div class="loader-ring"></div>
+    <div class="inner-track"></div>
+    <div class="inner-ring"></div>
+    <div class="center-dot"></div>
+</div>
+<script>
+    // HTML loader must be removed once Flutter paints its first frame
+    window.addEventListener('flutter-first-frame', function () {
+        const loader = document.querySelector('.loading-container');
+        if (loader) loader.remove();
+        loadAnalytics();
+    });
+
+    // Analytics is deferred off the critical path: injecting it in <head> adds a
+    // third-party DNS lookup and fetch before Flutter can start booting.
+    let analyticsLoaded = false;
+    function loadAnalytics() {
+        if (analyticsLoaded) return;
+        analyticsLoaded = true;
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { dataLayer.push(arguments); };
+        gtag('js', new Date());
+        gtag('config', 'G-FPKVD201S6');
+        const s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-FPKVD201S6';
+        document.head.appendChild(s);
+    }
+
+    // Fallback in case the first-frame event is missed.
+    window.addEventListener('load', function () {
+        setTimeout(loadAnalytics, 3000);
+    });
+</script>
+<script src="flutter_bootstrap.js" async></script>
+</body>
+
+</html>
